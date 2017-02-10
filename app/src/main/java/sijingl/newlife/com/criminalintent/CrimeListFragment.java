@@ -37,9 +37,24 @@ public class CrimeListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Crime c = ((CrimeAdapter) getListAdapter()).getItem(position);
         Log.d(TAG, c.getmTitle());
-        Intent i = new Intent(getActivity(), CrimeActivity.class);
-        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
+        //demo 1
+//        Intent i = new Intent(getActivity(), CrimeActivity.class);
+//        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
 //        startActivity(i);
+        //demo 2
+//        startActivityForResult(i, REQUEST_CRIME);
+
+        //demo 3
+        Intent i = new Intent(getActivity(), CrimePagerActivity.class);
+        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
+        startActivity(i);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CRIME) {
+
+        }
     }
 
     @Override
